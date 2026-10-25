@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "kind": "experiment",
+  "budgets_confirmed": true,
+  "groups": [
+    "A",
+    "R",
+    "D",
+    "S",
+    "G"
+  ],
+  "train_seeds": [
+    31,
+    32,
+    33,
+    34,
+    35
+  ],
+  "split_seed": 20261023,
+  "shuffle_seed": 73,
+  "customers": 100,
+  "destroy_size": 10,
+  "distribution": "XML100-mixed-sample-v1",
+  "counts": {
+    "prior_train": 100,
+    "policy_train": 100,
+    "development": 50,
+    "historical_test": 100
+  },
+  "train_states": 4,
+  "model": {
+    "width": 64,
+    "heads": 4,
+    "layers": 2
+  },
+  "prior": {
+    "seed": 101,
+    "steps": 3000,
+    "batch_size": 8,
+    "lr": 0.0001,
+    "grad_clip": 1.0
+  },
+  "geometry": {
+    "steps": 1000,
+    "lr": 0.01
+  },
+  "policy": {
+    "steps": 3000,
+    "batch_size": 8,
+    "rollouts": 8,
+    "lr": 0.0001,
+    "grad_clip": 1.0
+  },
+  "device": "cpu",
+  "threads_per_worker": 4,
+  "workers": 2,
+  "checkpoint_interval": 100,
+  "milestones": [],
+  "checkpoint_rule": "last_step",
+  "normalization": "all_nodes_center_rms_radius_clamp_1e-12",
+  "global_max_repair_calls": 10000000,
+  "global_max_wall_seconds": 259200,
+  "evaluation": {
+    "seeds": [
+      51,
+      52,
+      53
+    ],
+    "single_repeats": 8,
+    "iterations": 100,
+    "seconds": 2.0,
+    "order_seed": 20261023
+  },
+  "diagnostic": {
+    "instances": 30,
+    "positions": [
+      0,
+      50,
+      100
+    ],
+    "candidates": 64,
+    "policy_actions": 8,
+    "sensitivity_states": 4,
+    "prefix_length": 3
+  },
+  "bootstrap_samples": 5000,
+  "bootstrap_seed": 20261023,
+  "min_mean_relative_cost_advantage": 0.005,
+  "stop_after_prior": false
+}
